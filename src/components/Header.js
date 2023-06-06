@@ -1,10 +1,10 @@
-import {Fragment} from "react"
+import {usePathname} from "next/navigation"
 import Link from "next/link"
 import clsx from "clsx"
 import {Disclosure, Menu, Transition} from '@headlessui/react'
 import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Web3Button} from "@web3modal/react"
-import {usePathname} from "next/navigation"
+
 
 export default function Header() {
     const pathname = usePathname()
@@ -21,8 +21,8 @@ export default function Header() {
                                         BASKET
                                     </p>
                                 </div>
+
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                                    {/* Current: "border-sky-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                                     <Link
                                         href="/"
                                         className={clsx("inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium",
