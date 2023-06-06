@@ -1,5 +1,5 @@
 import {createContext, Component} from "react"
-import Supabase from "@/lib/supabase"
+import Firebase from "@/lib/firebase"
 
 
 const BasketContext = createContext({})
@@ -8,7 +8,7 @@ export default class BasketProvider extends Component {
     constructor(props) {
         super(props);
 
-        this.db = new Supabase()
+        this.db = new Firebase()
     }
 
     render() {

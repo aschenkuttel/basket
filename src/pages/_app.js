@@ -30,7 +30,7 @@ export default function App({Component, pageProps}) {
                     <div className={clsx("App", inter.className)}>
                         <Header/>
 
-                        <main className="flex flex-1 justify-center items-center">
+                        <main className="flex flex-1 justify-center items-center p-4">
                             <Component {...pageProps} />
                         </main>
                     </div>
@@ -40,7 +40,7 @@ export default function App({Component, pageProps}) {
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient}
                        themeVariables={{
                            '--w3m-font-family': 'Inter, sans-serif',
-                           '--w3m-accent-color': '#06B6D4'
+                           '--w3m-accent-color': '#0891B2'
                        }}
             />
         </>
