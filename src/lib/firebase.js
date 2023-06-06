@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
 
 export default class Firebase {
     constructor() {
@@ -13,5 +14,6 @@ export default class Firebase {
         }
 
         this._app = initializeApp(firebaseConfig)
+        this._db = getFirestore(this._app)
     }
 }
