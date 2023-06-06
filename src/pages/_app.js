@@ -7,6 +7,7 @@ import {Inter} from 'next/font/google'
 import clsx from "clsx"
 import Header from "@/components/Header"
 import '@/styles/globals.css'
+import BasketProvider from "@/components/Context";
 
 const chains = [bscTestnet]
 const projectId = '72c7b83811841a26516ce8f339f3144f'
@@ -25,13 +26,15 @@ export default function App({Component, pageProps}) {
     return (
         <>
             <WagmiConfig config={wagmiConfig}>
-                <div className={clsx("App", inter.className)}>
-                    <Header/>
+                <BasketProvider>
+                    <div className={clsx("App", inter.className)}>
+                        <Header/>
 
-                    <main className="flex flex-1 justify-center items-center">
-                        <Component {...pageProps} />
-                    </main>
-                </div>
+                        <main className="flex flex-1 justify-center items-center">
+                            <Component {...pageProps} />
+                        </main>
+                    </div>
+                </BasketProvider>
             </WagmiConfig>
 
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient}
