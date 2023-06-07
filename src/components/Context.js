@@ -11,19 +11,22 @@ export default class BasketProvider extends Component {
         this.db = new Firebase()
 
         this.state = {
-            baskets: []
+            baskets: [], 
+            assets: []
         }
     }
 
     async componentDidMount() {
         const baskets = await this.db.getBaskets()
-        this.setState({baskets: baskets})
+        const assets = await this.db.getAssets()
+        this.setState({baskets: baskets, assets: assets})
     }
 
     render() {
         return (
             <BasketContext.Provider value={{
-                baskets: this.state.baskets
+                baskets: this.state.baskets,
+                assets: this.state.assets
             }}>
                 {this.props.children}
             </BasketContext.Provider>

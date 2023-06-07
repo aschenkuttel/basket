@@ -1,21 +1,54 @@
 import Card from "@/components/Card"
 import {BasketContext} from "@/components/Context"
+
 import {useContext} from "react"
+import { ButtonLink } from "./Button"
+
 
 export default function Display({children}) {
 
-    const {baskets} = useContext(BasketContext)
+    const {baskets, assets} = useContext(BasketContext)
 
     baskets.forEach(basket => {
         console.log(basket)
     })
 
+    assets.forEach(asset => {
+        console.log(asset)
+    })
+
+    
+
     return (
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {baskets.map((basket, index) => (
                 <Card key={`card_${index}`} title={basket.title}>
-                    {basket.holders[0]}
-                    {basket.holders[1]}
+                    <ul>
+                        <li>
+                            <p>Description: {basket.description}</p>
+                        </li>
+                        <li>
+                            <p>Target: {basket.collected}$/{basket.target}$</p>
+                        </li>
+                        
+                        <div className="flex -space-x-0.5">
+                            <dt className="sr-only">Assets</dt>
+                            {assets.map((asset, index) => (
+                                
+
+                                <dd key={asset.address}>
+                                <img
+                                    className="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
+                                    src={asset.iconUrl}
+                                    alt={asset.name}
+                                />
+                            </dd>
+                            ))}
+            </div>
+                    </ul>                    
+                    <ButtonLink to='/basket/'>
+                        See details!
+                    </ButtonLink>
                 </Card>
             ))}
         </div>
