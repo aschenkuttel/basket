@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs } from "firebase/firestore"
+import {initializeApp} from "firebase/app"
+import {getFirestore, collection, getDocs} from "firebase/firestore"
+import Basket from "@/classes/Basket"
 
 export default class Firebase {
     constructor() {
@@ -17,14 +18,9 @@ export default class Firebase {
         this._db = getFirestore(this._app)
     }
 
-
     async getBaskets() {
-
         const colRef = collection(this._db, "baskets")
         const basketDocs = await getDocs(colRef)
-        return basketDocs.docs.map((basketDoc) => {
-            return {...basketDoc.data(), id:basketDoc.id}
-        });
-
+        return basketDocs.docs.map(basketDoc => new Basket(basketDoc));
     }
 }

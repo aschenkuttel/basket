@@ -31,15 +31,15 @@ contract Basket is ERC20 {
         uint amount;
     }
 
-    mapping(address => uint) amountsIndex;
+    mapping(address => uint) public amountsIndex;
     Amount[] public amounts;
 
     PendingPayment[] private _pendingBuy;
-    mapping(address => uint) _pendingBuyIndex;
+    mapping(address => uint) private _pendingBuyIndex;
     uint private _totalPendingBuyBalance;
 
     PendingCashout[] private _pendingSell;
-    mapping(address => uint) _pendingSellIndex;
+    mapping(address => uint) private _pendingSellIndex;
     uint private _totalPendingSellBalance;
 
     /*
