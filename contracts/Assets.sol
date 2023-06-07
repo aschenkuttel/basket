@@ -7,13 +7,13 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
 import '@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol';
 
-    struct Asset {
-        address _address;
-        address _poolAddress;
-        address _oracleAddress;
-        uint decimals;
-        bool isZero;
-    }
+struct Asset {
+    address _address;
+    address _poolAddress;
+    address _oracleAddress;
+    uint decimals;
+    bool isZero;
+}
 
 interface IAssets {
     function isSupported(address) external view returns(bool);
