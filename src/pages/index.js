@@ -17,13 +17,12 @@ export default function Home() {
 
             <p className="mt-10 text-lg leading-8 text-slate-400">Our platform allows you to effortlessly invest in multiple cryptocurrencies with just one click. Harnessing the power of blockchain technology, we ensure transparency, reduce transaction costs, and automate portfolio rebalancing. With Basket, investing in the dynamic world of cryptocurrencies becomes easy, efficient, and secure. Welcome to the future of crypto investment!</p>
 
-
-            <div className="flex flex-col mt-10 justify-center gap-8 sm:flex-row gap-4 items-center">
-                <ButtonLink to="/investing" className="w-72 items-center">
+            <div className="flex flex-col mt-10 justify-center sm:flex-row gap-4 items-center sm:gap-8 sm:items-stretch">
+                <ButtonLink to="/investing" className="w-72 h-12 items-center">
                     Get started
                 </ButtonLink>
-                {/*<p className="text-slate-400">or</p>*/}
-                <ButtonLink to='/community' className="w-72 bg-slate-600 items-center hover:bg-slate-500">
+
+                <ButtonLink to='/community' className="w-72 h-12 bg-slate-600 items-center hover:bg-slate-500">
                      <BookOpenIcon className="h-8 w-8 mx-2"/>
                      Learn More!
                 </ButtonLink>
