@@ -1,6 +1,5 @@
 import Card from "@/components/Card"
 import {BasketContext} from "@/components/Context"
-
 import {useContext} from "react"
 import { ButtonLink } from "./Button"
 
@@ -36,17 +35,18 @@ export default function Display({children}) {
                             {assets.map((asset, index) => (
                                 
 
-                                <dd key={asset.address}>
-                                <img
-                                    className="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
-                                    src={asset.iconUrl}
-                                    alt={asset.name}
-                                />
+                                <dd className = 'flex flex-row' key={asset.address}>
+                                    <p>Assets: </p>
+                                    <img
+                                        className="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
+                                        src={asset.iconUrl}
+                                        alt={asset.name}
+                                    />
                             </dd>
                             ))}
             </div>
                     </ul>                    
-                    <ButtonLink to='/basket/'>
+                    <ButtonLink to={`/basket/${basket.id}`}>
                         See details!
                     </ButtonLink>
                 </Card>

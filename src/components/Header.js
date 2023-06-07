@@ -17,9 +17,11 @@ export default function Header() {
                         <div className="flex h-16 justify-between">
                             <div className="flex">
                                 <div className="flex flex-shrink-0 items-center mr-4">
-                                    <p className="text-cyan-600 text-lg font-bold mt-1">
-                                        BASKET
-                                    </p>
+                                    <Link href='/'>
+                                        <p className="text-cyan-600 text-lg font-bold mt-1">
+                                            BASKET
+                                        </p>
+                                    </Link>
                                 </div>
 
                                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

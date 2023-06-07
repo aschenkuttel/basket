@@ -1,6 +1,29 @@
 import { PaperClipIcon } from '@heroicons/react/20/solid'
+import {BasketContext} from "@/components/Context"
+import {useContext, useState, useEffect} from "react"
+import { useRouter } from 'next/router';
+
 
 export default function Basket() {
+
+  const {baskets} = useContext(BasketContext)
+  const router = useRouter();
+  const basketId = router.query;
+  console.log(basketId);
+
+  
+
+  /* const [receivedBasket, setBasket] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+        await baskets.getBasket(basketId)
+        const basket = await db.getBasket(basketId)
+            setBasket(basket)   
+    })()
+}, [])
+*/
+
   return (
     <div>
       <div className="px-4 sm:px-0">
@@ -11,7 +34,7 @@ export default function Basket() {
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">Name</dt>
             
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{baskets[basketId]}</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">Application for</dt>
