@@ -1,4 +1,3 @@
-import {PaperClipIcon} from '@heroicons/react/20/solid'
 import {BasketContext} from "@/components/Context"
 import {useContext, useState, useEffect} from "react"
 import {useRouter} from 'next/router'
@@ -11,6 +10,7 @@ import {basketABI} from "@/lib/ABI";
 
 
 export default function Basket() {
+
     const {baskets, assets, isLoading} = useContext(BasketContext)
     const [basket, setBasket] = useState(null)
     const [basketAssets, setBasketAssets] = useState([])
