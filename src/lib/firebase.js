@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app"
-import {getFirestore, collection, getDocs, getDoc} from "firebase/firestore"
+import {getFirestore, collection, getDocs, getDoc, doc} from "firebase/firestore"
 import Basket from "@/classes/Basket"
 import Assets from "@/classes/Assets"
 
@@ -30,7 +30,7 @@ export default class Firebase {
         const basketDoc = await getDoc(docRef)
 
         if (basketDoc.exists()) {
-            return (basketDoc => new Basket(basketDoc))
+            return new Basket(basketDoc)
         } else {
             return null
         }
