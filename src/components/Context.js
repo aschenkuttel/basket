@@ -13,7 +13,8 @@ export default class BasketProvider extends Component {
         this.state = {
             baskets: [], 
             assets: [],
-            isLoading: true
+            isLoading: true,
+            address: null
         }
     }
 

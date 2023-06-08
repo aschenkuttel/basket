@@ -53,9 +53,9 @@ export default function Basket() {
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Assets</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">{
+                                    <dd class="mt-2 text-sm text-gray-500 flex flex-row -space-x-0.5 gap-1">{
                                         basketAssets.map((asset, index) => (
-                                            <dd className='flex flex-row' key={asset.address}>
+                                            <dd className='h-5 w-5' key={asset.address}>
                                                 <img src={asset.iconUrl} alt={asset.name}/>
                                             </dd>
                                         ))
@@ -63,28 +63,35 @@ export default function Basket() {
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Amount Colected / Target Amount</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">{basket.collected}$/{basket.target}$</dd>
+                                    <dd class="mt-2 text-sm text-yellow-500">{basket.collected}$/{basket.target}$</dd>
                                 </div>
                             </dl>
                         </div>
 
-                        <div class="gap-4 sm:gap-6 lg:gap-8 h-32 w-32">
+                        <div class="gap-4 sm:gap-6 lg:gap-8 h-128 w-128">
                             <img
-                                src="https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@1a63530be6e374711a8554f31b17e4cb92c25fa5/svg/black/btc.svg"
+                                src="https://cdn2.etrade.net/1/19010916210.0/aempros/content/dam/etrade/retail/en_US/images/knowledge/library/stocks/sp500-daily-line-chart.png"
                                 alt="BTC"/>
                         </div>
 
-                        <div class="flex flex-row items-center gap-4">
+                        <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
                             <Button onClick={async () => {
                                 // const transactionID = await buyIn()
                             }}
-                                    className="bg-green-500 hover:bg-green-400"> Buy-in</Button>
+                                    className="bg-green-500 hover:bg-green-400">Buy</Button>
                             <Button onClick={async () => {
-                                // const transactionID = await refund()
-                            }} className="bg-red-500 hover:bg-red-400">Refund</Button>
+                                // const transactionID = await instantBuy()
+                            }} className="bg-green-600 hover:bg-green-400">Instant Buy</Button>
+                            <Button onClick={async () => {
+                                // const transactionID = await cancelBuy()
+                            }} className="bg-yellow-500 hover:bg-yellow-400">Cancel Buy</Button>
                             <Button onClick={async () => {
                                 // const transactionID = await sell()
                             }} className="bg-red-600 hover:bg-red-400">Sell</Button>
+                            <Button onClick={async () => {
+                                // const transactionID = await cancelSell()
+                            }} className="bg-red-600 hover:bg-red-400">Cancel Sell</Button>
+
                         </div>
                     </div>
                 </div>
