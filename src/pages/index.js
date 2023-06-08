@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import {Button,ButtonLink} from '../components/Button'
+import {ButtonLink} from '@/components/Button'
 import {BookOpenIcon} from '@heroicons/react/24/outline'
 
 export default function Home() {
@@ -22,7 +21,7 @@ export default function Home() {
                     Get started
                 </ButtonLink>
 
-                <ButtonLink to='https://toasti3-hd.gitbook.io/basket/' className="w-72 h-12 bg-slate-600 items-center hover:bg-slate-500">
+                <ButtonLink to='https://docs.basket.business' className="w-72 h-12 bg-slate-600 items-center hover:bg-slate-500">
                      <BookOpenIcon className="h-8 w-8 mx-2"/>
                      Learn More!
                 </ButtonLink>

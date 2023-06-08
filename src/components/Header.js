@@ -1,7 +1,8 @@
 import {usePathname} from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import clsx from "clsx"
-import {Disclosure, Menu, Transition} from '@headlessui/react'
+import {Disclosure} from '@headlessui/react'
 import {Bars3Icon, BellIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Web3Button} from "@web3modal/react"
 
@@ -109,7 +110,8 @@ export default function Header() {
                         <div className="border-t border-gray-200 pb-3 pt-4">
                             <div className="flex items-center px-4">
                                 <div className="flex-shrink-0">
-                                    <img
+                                    <Image
+                                        height={40} width={40}
                                         className="h-10 w-10 rounded-full"
                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                                         alt=""

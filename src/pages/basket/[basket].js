@@ -2,7 +2,6 @@ import {BasketContext} from "@/components/Context"
 import {useContext, useState, useEffect} from "react"
 import {useRouter} from 'next/router'
 import Image from "next/image"
-// import { CardLineChart } from "@/components/CardLineChart";
 import {Button} from '@/components/Button'
 import {useContractWrite} from "wagmi"
 import {parseGwei} from "viem";
@@ -10,7 +9,6 @@ import {basketABI} from "@/lib/ABI";
 
 
 export default function Basket() {
-
     const {baskets, assets, isLoading} = useContext(BasketContext)
     const [basket, setBasket] = useState(null)
     const [basketAssets, setBasketAssets] = useState([])
@@ -80,7 +78,7 @@ export default function Basket() {
                     </div>
 
                     <div class="gap-4 sm:gap-6 lg:gap-8 h-128 w-128">
-                        <img
+                        <Image width={480} height={256}
                             src="https://cdn2.etrade.net/1/19010916210.0/aempros/content/dam/etrade/retail/en_US/images/knowledge/library/stocks/sp500-daily-line-chart.png"
                             alt="BTC"/>
                     </div>
