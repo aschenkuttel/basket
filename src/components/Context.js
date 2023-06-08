@@ -12,21 +12,23 @@ export default class BasketProvider extends Component {
 
         this.state = {
             baskets: [], 
-            assets: []
+            assets: [],
+            isLoading: true
         }
     }
 
     async componentDidMount() {
         const baskets = await this.db.getBaskets()
         const assets = await this.db.getAssets()
-        this.setState({baskets: baskets, assets: assets})
+        this.setState({baskets: baskets, assets: assets, isLoading: false})
     }
 
     render() {
         return (
             <BasketContext.Provider value={{
                 baskets: this.state.baskets,
-                assets: this.state.assets
+                assets: this.state.assets,
+                isLoading: this.state.isLoading
             }}>
                 {this.props.children}
             </BasketContext.Provider>

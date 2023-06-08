@@ -7,7 +7,7 @@ import {Button} from '@/components/Button';
 
 
 export default function Basket() {
-    const {baskets, assets} = useContext(BasketContext)
+    const {baskets, assets, isLoading} = useContext(BasketContext)
     const [loading, setLoading] = useState(true)
     const [basket, setBasket] = useState(null)
     const [basketAssets, setBasketAssets] = useState([])
@@ -15,20 +15,24 @@ export default function Basket() {
 
     useEffect(() => {
         (async () => {
-            const basket = baskets.find(basket => basket.id === router.query.basket)
-            setBasket(basket || null)
-            const _basketAssets = assets.filter(asset => basket.assets.includes(asset.id))
-            console.log(basket.assets)
-            setBasketAssets(_basketAssets)
+            const basketObject = baskets.find(basket => basket.id === router.query.basket)
+            setBasket(basketObject || null)
+
+            if (basketObject !== null) {
+                const _basketAssets = assets.filter(asset => basketObject.assets.includes(asset.id))
+                console.log(_basketAssets)
+                setBasketAssets(_basketAssets)
+            }
+
             setLoading(false)
         })()
-    }, [])
+    }, [isLoading])
 
     if (loading) {
         return <div>Loading</div>
     } else if (basket === null) {
         return <div>No Basket with that ID</div>
-    }else{
+    } else {
         return (
             <div className="flex items-center">
 
@@ -49,7 +53,13 @@ export default function Basket() {
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Assets</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">{basketAssets[0].symbol}</dd>
+                                    <dd class="mt-2 text-sm text-gray-500">{
+                                        basketAssets.map((asset, index) => (
+                                            <dd className='flex flex-row' key={asset.address}>
+                                                <img src={asset.iconUrl} alt={asset.name}/>
+                                            </dd>
+                                        ))
+                                    }</dd>
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Amount Colected / Target Amount</dt>

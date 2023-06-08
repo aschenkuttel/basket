@@ -1,6 +1,6 @@
 export default class Assets {
     constructor(assetDocs) {
-        this.address = assetDocs.address
+        this.id = assetDocs.id
         const data = assetDocs.data()
 
         this.name = data.name
