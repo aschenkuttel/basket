@@ -10,4 +10,8 @@ export default class Basket {
         this.assets = data.assets
         this.holders = data.holders
     }
+
+    async buyPending() {
+
+    }
 }
