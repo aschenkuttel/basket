@@ -13,7 +13,7 @@ export default function Display({children}) {
             {baskets.map((basket, index) => (
                 <Card key={`card_${index}`} title={basket.title}>
                             <p>{basket.description}</p>
-                            <p className="mt-4 text-center">{basket.collected}$/{basket.target}$</p>
+                            <p className="mt-4 text-center text-yellow-500">{basket.collected}$/{basket.target}$</p>
                     
                         <div className="flex flex-col justify-center gap-y-5">
                             <div className="flex mt-4  -space-x-0.5 gap-1">

@@ -3,7 +3,7 @@ import {BasketContext} from "@/components/Context"
 import {useContext, useState, useEffect} from "react"
 import {useRouter} from 'next/router';
 // import { CardLineChart } from "@/components/CardLineChart";
-import {Button} from '@/components/Button';
+import {Button, ButtonLink} from '@/components/Button';
 
 
 export default function Basket() {
@@ -91,6 +91,9 @@ export default function Basket() {
                             <Button onClick={async () => {
                                 // const transactionID = await cancelSell()
                             }} className="bg-red-600 hover:bg-red-400">Cancel Sell</Button>
+                            <ButtonLink to="https://docdro.id/N91rNH4" onClick={async () => {
+                                // const transactionID = await cancelSell()
+                            }} className="bg-gray-600 hover:bg-gray-400">Read the Fact Sheet</ButtonLink>
 
                         </div>
                     </div>
