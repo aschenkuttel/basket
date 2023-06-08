@@ -30,19 +30,18 @@ export default function Display({children}) {
                             <p>Target: {basket.collected}$/{basket.target}$</p>
                         </li>
                         
-                        <div className="flex -space-x-0.5">
+                        <div className="flex -space-x-0.5 gap-1">
                             <dt className="sr-only">Assets</dt>
-                            {assets.map((asset, index) => (
-                                
-
-                                <dd className = 'flex flex-row' key={asset.address}>
-                                    <p>Assets: </p>
-                                    <img
-                                        className="h-6 w-6 rounded-full bg-gray-50 ring-2 ring-white"
-                                        src={asset.iconUrl}
-                                        alt={asset.name}
-                                    />
-                            </dd>
+                                <p>Assets: </p>
+                                {assets.map((asset, index) => (
+                                    <dd className = 'flex flex-row' key={asset.address}>
+                                        
+                                        <img
+                                            className="h-5 w-5 rounded-full bg-gray-50 ring-2 ring-white"
+                                            src={asset.iconUrl}
+                                            alt={asset.name}
+                                        />
+                                    </dd>
                             ))}
             </div>
                     </ul>                    

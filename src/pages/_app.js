@@ -8,6 +8,7 @@ import clsx from "clsx"
 import Header from "@/components/Header"
 import '@/styles/globals.css'
 import BasketProvider from "@/components/Context";
+import Footer from '@/components/Footer'
 
 const chains = [bscTestnet]
 const projectId = '72c7b83811841a26516ce8f339f3144f'
@@ -33,6 +34,7 @@ export default function App({Component, pageProps}) {
                         <main className="flex flex-1 justify-center items-center p-4">
                             <Component {...pageProps} />
                         </main>
+                        <Footer/>
                     </div>
                 </BasketProvider>
             </WagmiConfig>
