@@ -1,6 +1,5 @@
 import {createContext, Component} from "react"
 import Firebase from "@/lib/firebase"
-import {ethers} from "ethers"
 
 
 const BasketContext = createContext({})
@@ -14,8 +13,7 @@ export default class BasketProvider extends Component {
         this.state = {
             baskets: [], 
             assets: [],
-            isLoading: true,
-            address: null
+            isLoading: true
         }
     }
 

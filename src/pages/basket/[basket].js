@@ -5,6 +5,9 @@ import {useRouter} from 'next/router'
 import Image from "next/image"
 // import { CardLineChart } from "@/components/CardLineChart";
 import {Button} from '@/components/Button'
+import {useContractWrite} from "wagmi"
+import {parseGwei} from "viem";
+import {basketABI} from "@/lib/ABI";
 
 
 export default function Basket() {
@@ -12,6 +15,19 @@ export default function Basket() {
     const [basket, setBasket] = useState(null)
     const [basketAssets, setBasketAssets] = useState([])
     const router = useRouter()
+
+    const buyData = useContractWrite({
+        address: '0xA9D65a198AD79DD238bf522e71d5dDeFEdaaAA33',
+        abi: basketABI,
+        functionName: 'buyPending',
+        value: parseGwei("1000")
+    })
+
+    const sellData = useContractWrite({
+        address: '0xA9D65a198AD79DD238bf522e71d5dDeFEdaaAA33',
+        abi: basketABI,
+        functionName: 'sellPending'
+    })
 
     useEffect(() => {
         (async () => {
@@ -71,10 +87,10 @@ export default function Basket() {
 
                     <div className="flex flex-col gap-4">
                         <div className="flex gap-4">
-                            <Button className="flex-1" onClick={basket.pendingBuy}>
+                            <Button className="flex-1" onClick={buyData.write}>
                                 Buy
                             </Button>
-                            <Button className="flex-1" onClick={basket.pendingSell}>
+                            <Button className="flex-1" onClick={sellData.write}>
                                 Cancel Buy
                             </Button>
                         </div>

@@ -11,7 +11,7 @@ export default class Basket {
         this.holders = data.holders
     }
 
-    async buyPending() {
+    async buyPending() {}
 
-    }
+    async sellPending() {}
 }
