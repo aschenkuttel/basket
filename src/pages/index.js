@@ -22,7 +22,7 @@ export default function Home() {
                     Get started
                 </ButtonLink>
 
-                <ButtonLink to='/community' className="w-72 h-12 bg-slate-600 items-center hover:bg-slate-500">
+                <ButtonLink to='https://toasti3-hd.gitbook.io/basket/' className="w-72 h-12 bg-slate-600 items-center hover:bg-slate-500">
                      <BookOpenIcon className="h-8 w-8 mx-2"/>
                      Learn More!
                 </ButtonLink>

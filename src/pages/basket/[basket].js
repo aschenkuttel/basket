@@ -7,15 +7,19 @@ import {Button} from '@/components/Button';
 
 
 export default function Basket() {
-    const {baskets} = useContext(BasketContext)
+    const {baskets, assets} = useContext(BasketContext)
     const [loading, setLoading] = useState(true)
     const [basket, setBasket] = useState(null)
+    const [basketAssets, setBasketAssets] = useState([])
     const router = useRouter()
 
     useEffect(() => {
         (async () => {
             const basket = baskets.find(basket => basket.id === router.query.basket)
             setBasket(basket || null)
+            const _basketAssets = assets.filter(asset => basket.assets.includes(asset.id))
+            console.log(basket.assets)
+            setBasketAssets(_basketAssets)
             setLoading(false)
         })()
     }, [])
@@ -24,7 +28,7 @@ export default function Basket() {
         return <div>Loading</div>
     } else if (basket === null) {
         return <div>No Basket with that ID</div>
-    } else {
+    }else{
         return (
             <div className="flex items-center">
 
@@ -41,15 +45,15 @@ export default function Basket() {
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Details</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">Good times, good shares</dd>
+                                    <dd class="mt-2 text-sm text-gray-500">{basket.description}</dd>
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Assets</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">BTC,ETH</dd>
+                                    <dd class="mt-2 text-sm text-gray-500">{basketAssets[0].symbol}</dd>
                                 </div>
                                 <div class="border-t border-gray-200 pt-4">
                                     <dt class="font-medium text-gray-900">Amount Colected / Target Amount</dt>
-                                    <dd class="mt-2 text-sm text-gray-500">200$/500$</dd>
+                                    <dd class="mt-2 text-sm text-gray-500">{basket.collected}$/{basket.target}$</dd>
                                 </div>
                             </dl>
                         </div>
@@ -64,13 +68,13 @@ export default function Basket() {
                             <Button onClick={async () => {
                                 // const transactionID = await buyIn()
                             }}
-                                    className="bg-green-500"> Buy-in</Button>
+                                    className="bg-green-500 hover:bg-green-400"> Buy-in</Button>
                             <Button onClick={async () => {
                                 // const transactionID = await refund()
-                            }} className="bg-red-500">Refund</Button>
+                            }} className="bg-red-500 hover:bg-red-400">Refund</Button>
                             <Button onClick={async () => {
                                 // const transactionID = await sell()
-                            }} className="bg-red-600">Sell</Button>
+                            }} className="bg-red-600 hover:bg-red-400">Sell</Button>
                         </div>
                     </div>
                 </div>
