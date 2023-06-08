@@ -6,7 +6,6 @@ import Image from "next/image"
 
 
 export default function Display({children}) {
-
     const {baskets, assets} = useContext(BasketContext)
 
     return (

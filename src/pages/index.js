@@ -15,7 +15,7 @@ export default function Home() {
                 <h1 className="mt-20 text-2xl font-bold tracking-tight text-slate-400 sm:text-4xl">Your gateway to crypto diversification!</h1>
             </div>
 
-            <p className="mt-10 text-lg leading-8 text-slate-400">Our platform allows you to effortlessly invest in multiple cryptocurrencies with just one click. Harnessing the power of blockchain technology, we ensure transparency, reduce transaction costs, and automate portfolio rebalancing. With Basket, investing in the dynamic world of cryptocurrencies becomes easy, efficient, and secure. Welcome to the future of crypto investment!</p>
+            <p className="mt-10 text-lg leading-8 text-center text-slate-400">Our platform allows you to effortlessly invest in multiple cryptocurrencies with just one click. Harnessing the power of blockchain technology, we ensure transparency, reduce transaction costs, and automate portfolio rebalancing. With Basket, investing in the dynamic world of cryptocurrencies becomes easy, efficient, and secure. Welcome to the future of crypto investment!</p>
 
             <div className="flex flex-col mt-10 justify-center sm:flex-row gap-4 items-center sm:items-stretch">
                 <ButtonLink to="/investing" className="w-72 h-12 items-center">
