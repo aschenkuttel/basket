@@ -9,6 +9,9 @@ import Header from "@/components/Header"
 import '@/styles/globals.css'
 import BasketProvider from "@/components/Context";
 import Footer from '@/components/Footer'
+import ReactGA from 'react-ga4';
+
+ReactGA.initialize('G-71J6JZKCY0');
 
 const chains = [bscTestnet]
 const projectId = '72c7b83811841a26516ce8f339f3144f'
